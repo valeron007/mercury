@@ -1,0 +1,64 @@
+Для доступа к подсистеме Меркурий.ХС используйте адрес — mercury.vetrf.ru/hs.
+
+
+login:katenkov_aa_200113
+
+password:Rfk,fcf0702
+
+password_two:H4a2Wek
+
+ApplicationManagementService предоставляет возможность обращения
+к следующим целевым сервисам (serviceId)
+специализированных информационных систем:
+mercury-g2b.service
+
+API
+
+Login: ipkatenkov-200113
+Password: 3Dv5dHwP6W
+APIKey:OThiNDE1ZGUtMzQ1ZC00NmI2LWI4OTUtMDg3NjE4Y2I3ZGMzOGE0ZmNkNDAtNTI1NC00NDgyLTg0YTgtMDQ1NmUxMTU0MzMw
+ServiceID: mercury-g2b.service
+IssuerID:
+8a4fcd40-5254-4482-84a8-0456e1154330 (Катенков Алексей Александрович)
+
+1. Авторизация
+https://api.vetrf.ru/platform/services/2.0/ApplicationManagementService
+
+Учетная запись (Account name):
+andrjucshenko_vg_200203
+
+Пароль:Pelmenbest0702
+
+Пароль (Password):
+dT3X5p6d
+
+Rfk,fcf0702
+
+Вам выданы временные реквизиты доступа, необходимо изменить ваш пароль здесь
+
+Вход в систему Меркурий - https://t2-mercury.vetrf.ru/hs
+
+Вход в систему Аргус - https://t2-argus.vetrf.ru/hs
+
+Вы можете войти под вашими реквизитами в систему "Ветис.Паспорт" по адресу http://t2-accounts.vetrf.ru . В данной системе вы можете менять информацию своего профиля.
+
+меркурий
+https://t2-mercury.vetrf.ru/
+
+login:katenkov_aa_200113
+password:Rfk,fcf0702
+
+форум
+https://vetrf.ru/vetrf-forum/forums/show/6.page
+
+
+Заявки
+ндрющенко Валерий Геннадьевич
+0000026223
+03.02.2020
+andrjucshenko_vg_200203
+
+ApplicationID:b80b6f20-542a-4c43-9311-227a6ce9f20b
+
+
+

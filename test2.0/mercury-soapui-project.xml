@@ -1,0 +1,688 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="6c129b42-54e2-4704-97ca-e31d92737a59" activeEnvironment="Default" name="mercury" resourceRoot="${projectDir}" soapui-version="5.5.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="cd37f6a6-e559-4af2-9e96-8cd337fde9e4" wsaVersion="NONE" name="ApplicationManagementServiceBinding" type="wsdl" bindingName="{http://api.vetrf.ru/schema/cdm/application/service}ApplicationManagementServiceBinding" soapVersion="1_1" anonymous="optional" definition="ApplicationManagementService_v2.0.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:/home/valeron/PycharmProjects/mercury/test2.0/ApplicationManagementService_v2.0.wsdl"><con:part><con:url>file:/home/valeron/PycharmProjects/mercury/test2.0/ApplicationManagementService_v2.0.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="ApplicationManagementService" targetNamespace="http://api.vetrf.ru/schema/cdm/application/service" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://api.vetrf.ru/schema/cdm/application/service" xmlns:def="http://api.vetrf.ru/schema/cdm/application/ws-definitions" xmlns:bsdef="http://api.vetrf.ru/schema/cdm/base/ws-definitions" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:documentation>Service: ApplicationManagementService
+      Version: 1.1</wsdl:documentation>
+  <!--IMPORTS-->
+  <wsdl:types>
+    <xs:schema>
+      <xs:import namespace="http://api.vetrf.ru/schema/cdm/application/ws-definitions" schemaLocation="application_ws_definitions_v2.0.xsd"/>
+      <xs:import namespace="http://api.vetrf.ru/schema/cdm/base/ws-definitions" schemaLocation="base_ws_definitions_v2.0.xsd"/>
+    </xs:schema>
+  </wsdl:types>
+  <!--MESSAGES-->
+  <wsdl:message name="SubmitApplicationRequest">
+    <wsdl:part name="request" element="def:submitApplicationRequest"/>
+  </wsdl:message>
+  <wsdl:message name="SubmitApplicationResponse">
+    <wsdl:part name="response" element="def:submitApplicationResponse"/>
+  </wsdl:message>
+  <wsdl:message name="ReceiveApplicationResultRequest">
+    <wsdl:part name="request" element="def:receiveApplicationResultRequest"/>
+  </wsdl:message>
+  <wsdl:message name="ReceiveApplicationResultResponse">
+    <wsdl:part name="response" element="def:receiveApplicationResultResponse"/>
+  </wsdl:message>
+  <wsdl:message name="ApplicationNotFoundFault">
+    <wsdl:part name="fault" element="bsdef:entityNotFoundFault"/>
+  </wsdl:message>
+  <wsdl:message name="InternalServiceFault">
+    <wsdl:part name="fault" element="bsdef:internalServiceFault"/>
+  </wsdl:message>
+  <wsdl:message name="IncorrectRequestFault">
+    <wsdl:part name="fault" element="bsdef:incorrectRequestFault"/>
+  </wsdl:message>
+  <wsdl:message name="AccessDeniedFault">
+    <wsdl:part name="fault" element="bsdef:accessDeniedFault"/>
+  </wsdl:message>
+  <wsdl:message name="UnsupportedApplicationDataTypeFault">
+    <wsdl:part name="fault" element="def:unsupportedApplicationDataTypeFault"/>
+  </wsdl:message>
+  <wsdl:message name="UnknownServiceIdFault">
+    <wsdl:part name="fault" element="def:unknownServiceIdFault"/>
+  </wsdl:message>
+  <!--PORT-->
+  <wsdl:portType name="ApplicationManagementServicePortType">
+    <wsdl:operation name="submitApplicationRequest">
+      <wsdl:input message="tns:SubmitApplicationRequest"/>
+      <wsdl:output message="tns:SubmitApplicationResponse"/>
+      <wsdl:fault message="tns:UnsupportedApplicationDataTypeFault" name="unsupportedApplicationDataTypeFault"/>
+      <wsdl:fault message="tns:UnknownServiceIdFault" name="unknownServiceIdFault"/>
+      <wsdl:fault message="tns:InternalServiceFault" name="internalServiceFault"/>
+      <wsdl:fault message="tns:IncorrectRequestFault" name="incorrectRequestFault"/>
+      <wsdl:fault message="tns:AccessDeniedFault" name="accessDeniedFault"/>
+    </wsdl:operation>
+    <wsdl:operation name="receiveApplicationResult">
+      <wsdl:input message="tns:ReceiveApplicationResultRequest"/>
+      <wsdl:output message="tns:ReceiveApplicationResultResponse"/>
+      <wsdl:fault message="tns:ApplicationNotFoundFault" name="applicationNotFoundFault"/>
+      <wsdl:fault message="tns:InternalServiceFault" name="internalServiceFault"/>
+      <wsdl:fault message="tns:IncorrectRequestFault" name="incorrectRequestFault"/>
+      <wsdl:fault message="tns:AccessDeniedFault" name="accessDeniedFault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <!--BINDING-->
+  <wsdl:binding name="ApplicationManagementServiceBinding" type="tns:ApplicationManagementServicePortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="submitApplicationRequest">
+      <soap:operation soapAction="submitApplicationRequest"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="unsupportedApplicationDataTypeFault">
+        <soap:fault name="unsupportedApplicationDataTypeFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="unknownServiceIdFault">
+        <soap:fault name="unknownServiceIdFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="internalServiceFault">
+        <soap:fault name="internalServiceFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="incorrectRequestFault">
+        <soap:fault name="incorrectRequestFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="accessDeniedFault">
+        <soap:fault name="accessDeniedFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="receiveApplicationResult">
+      <soap:operation soapAction="receiveApplicationResult"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="applicationNotFoundFault">
+        <soap:fault name="applicationNotFoundFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="internalServiceFault">
+        <soap:fault name="internalServiceFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="incorrectRequestFault">
+        <soap:fault name="incorrectRequestFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="accessDeniedFault">
+        <soap:fault name="accessDeniedFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>file:/home/valeron/PycharmProjects/mercury/test2.0/application_ws_definitions_v2.0.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://api.vetrf.ru/schema/cdm/application/ws-definitions" elementFormDefault="qualified" version="2.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:apl="http://api.vetrf.ru/schema/cdm/application" xmlns:bs="http://api.vetrf.ru/schema/cdm/base">
+  <xs:import namespace="http://api.vetrf.ru/schema/cdm/base" schemaLocation="base_v2.0.xsd"/>
+  <xs:import namespace="http://api.vetrf.ru/schema/cdm/application" schemaLocation="application_v2.0.xsd"/>
+  <xs:element name="unsupportedApplicationDataTypeFault" type="bs:FaultInfo"/>
+  <xs:element name="unknownServiceIdFault" type="bs:FaultInfo"/>
+  <xs:element name="submitApplicationRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="apiKey" type="apl:APIKey" minOccurs="1" maxOccurs="1"/>
+        <xs:element ref="apl:application" minOccurs="1" maxOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="submitApplicationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="apl:application" minOccurs="1" maxOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="receiveApplicationResultRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="apiKey" type="apl:APIKey" minOccurs="1" maxOccurs="1"/>
+        <xs:element name="issuerId" type="bs:UUID" minOccurs="1" maxOccurs="1"/>
+        <xs:element name="applicationId" type="bs:UUID" minOccurs="1" maxOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="receiveApplicationResultResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="apl:application" minOccurs="1" maxOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>file:/home/valeron/PycharmProjects/mercury/test2.0/base_v2.0.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://api.vetrf.ru/schema/cdm/base" elementFormDefault="qualified" version="2.0" xmlns:tns="http://api.vetrf.ru/schema/cdm/base" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="guid" type="tns:UUID"/>
+  <xs:element name="uuid" type="tns:UUID"/>
+  <xs:element name="listOptions" type="tns:ListOptions"/>
+  <xs:element name="updateDateInterval" type="tns:DateInterval"/>
+  <xs:complexType name="GenericEntity">
+    <xs:annotation>
+      <xs:documentation>Тип, базовый для любой сущности системы.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="uuid" type="tns:UUID" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Идентификатор сущности.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GenericVersioningEntity">
+    <xs:annotation>
+      <xs:documentation>Тип, базовый для сущностей, поддерживающих версии.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="tns:GenericEntity">
+        <xs:sequence>
+          <xs:element name="guid" type="tns:UUID" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>Глобальный идентификатор в системах
+                        Россельхознадзора.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="active" type="xs:boolean" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>Флаг, определяющий актуальность записи.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="last" type="xs:boolean" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>Флаг, указывающий на то, что запись является последней в истории.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="status" type="tns:VersionStatus" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>Статус объекта.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="createDate" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>Дата создания объекта.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="updateDate" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>Дата последнего обновления объекта.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="previous" type="tns:UUID" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>Идентификатор предыдущей версии объекта.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="next" type="tns:UUID" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>Идентификатор последующей версии объекта.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ListOptions">
+    <xs:annotation>
+      <xs:documentation>Тип, определяющий параметры запрашиваемого у
+            сервиса списка объектов.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="count" type="xs:nonNegativeInteger" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Максимальное запрашиваемое количество объектов в
+                  списке.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="offset" type="xs:nonNegativeInteger" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Номер элемента, по которому осуществляется
+                  смещение первого элемента списка.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DateInterval">
+    <xs:annotation>
+      <xs:documentation>Тип, с помощью которого задается временной интервал.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="beginDate" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Начало временного интервала.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="endDate" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Конец временного интервала.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EntityList">
+    <xs:annotation>
+      <xs:documentation>Базовый тип для описания списков сущностей.</xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="count" type="xs:int" use="optional">
+      <xs:annotation>
+        <xs:documentation>Размер списка, передаваемого в ответе на запрос.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="total" type="xs:long" use="optional">
+      <xs:annotation>
+        <xs:documentation>Размер всего списка, удовлетворяющего запросу.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="offset" type="xs:int" use="optional">
+      <xs:annotation>
+        <xs:documentation>Смещение первого элемента передаваемого списка во
+               всем списке результатов, удовлетворяющих запросу.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="hasMore" type="xs:boolean" use="optional">
+      <xs:annotation>
+        <xs:documentation>Признак того, что передаваемая часть (страница) списка, удовлетворяющего запросу, не является последней.
+               Для списка в ответе сервиса обязательным является наличие одного из двух атрибутов: total или hasMore</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="FaultInfo">
+    <xs:annotation>
+      <xs:documentation>Тип, описываюший ошибки.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="message" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="error" type="tns:Error" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Error">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="code" type="xs:NCName" use="required"/>
+        <xs:attribute name="qualifier" type="tns:Identifier" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:simpleType name="UUID">
+    <xs:annotation>
+      <xs:documentation>Тип, описывающий уникальный идентификатор любой
+            сущности системы.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Text">
+    <xs:annotation>
+      <xs:documentation>Строковый тип без ограничения максимальной длины.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:simpleType name="NText">
+    <xs:annotation>
+      <xs:documentation>Строковый тип (нормализованная строка) без ограничения максимальной длины.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token"/>
+  </xs:simpleType>
+  <xs:simpleType name="String255">
+    <xs:annotation>
+      <xs:documentation>Строковый тип с ограничением максимальной длины.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="255"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="String32">
+    <xs:annotation>
+      <xs:documentation>Строковый тип с ограничением максимальной длины.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="32"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Decimal">
+    <xs:annotation>
+      <xs:documentation>Вещественный тип с ограничением числа знаков после запятой.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="6"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="VersionStatus">
+    <xs:annotation>
+      <xs:documentation>Тип, описывающий статусы версионных объектов.
+            100 - CREATED - Запись создана
+            110 CREATED_WHEN_MERGE - Запись создана в результате объединения двух или более других
+            120 - CREATED_WHEN_SPLIT - Запись создана в результате разделения другой
+            200 - UPDATED - В запись были внесены изменения
+            230 - UPDATED_WHEN_ATTACH - Запись была обновлена в результате присоединения другой
+            240 - UPDATED_WHEN_FORK - Запись была обновлена в результате отделения от неё другой
+            300 - MOVED - Запись была перемещена в другую группу (для иерархических справочников)
+            400 - DELETED - Запись была удалена
+            410 - DELETED_WHEN_MERGE - Запись была удалена в результате объединения
+            420 - DELETED_WHEN_SPLIT - Запись была удалена в результате разделения
+            430 - DELETED_WHEN_ATTACH - Запись была удалена в результате присоединения</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:integer">
+      <xs:pattern value="[1-4][0-9][0-9]"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="RegisterModificationType">
+    <xs:annotation>
+      <xs:documentation>Тип операции на изменение реестра.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CREATE">
+        <xs:annotation>
+          <xs:documentation>Добавление новой записи.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="FIND_OR_CREATE">
+        <xs:annotation>
+          <xs:documentation>Поиск существующей или добавление новой записи. [CREATE IF NOT EXISTS]</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="UPDATE">
+        <xs:annotation>
+          <xs:documentation>Внесение изменений в существующую запись.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DELETE">
+        <xs:annotation>
+          <xs:documentation>Удаление существующей записи.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MERGE">
+        <xs:annotation>
+          <xs:documentation>Объединение двух или нескольких записей.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ATTACH">
+        <xs:annotation>
+          <xs:documentation>Присоединение одной или нескольких записе к другой.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SPLIT">
+        <xs:annotation>
+          <xs:documentation>Разделение записи на две и более.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="FORK">
+        <xs:annotation>
+          <xs:documentation>Отделение одной и более записей от существующей.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Identifier">
+    <xs:annotation>
+      <xs:documentation>Тип, описывающий идентификатор.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:maxLength value="100"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SequenceNumber">
+    <xs:annotation>
+      <xs:documentation>Тип, описывающий порядковый номер.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:positiveInteger"/>
+  </xs:simpleType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>file:/home/valeron/PycharmProjects/mercury/test2.0/application_v2.0.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://api.vetrf.ru/schema/cdm/application" elementFormDefault="qualified" version="2.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:apl="http://api.vetrf.ru/schema/cdm/application" xmlns:bs="http://api.vetrf.ru/schema/cdm/base">
+  <xs:import namespace="http://api.vetrf.ru/schema/cdm/base" schemaLocation="base_v2.0.xsd"/>
+  <xs:element name="application" type="apl:Application"/>
+  <xs:element name="applicationData" type="apl:ApplicationData" abstract="true"/>
+  <xs:element name="applicationResultData" type="apl:ApplicationResultData" abstract="true"/>
+  <xs:element name="businessError" type="apl:BusinessError"/>
+  <xs:element name="errorList" type="apl:BusinessErrorList"/>
+  <xs:element name="binary" type="apl:BinaryContent"/>
+  <xs:complexType name="Application">
+    <xs:sequence>
+      <xs:element name="applicationId" type="bs:UUID" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="status" type="apl:ApplicationStatus" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="serviceId" type="xs:Name" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="issuerId" type="bs:UUID" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="issueDate" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="rcvDate" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="prdcRsltDate" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="data" type="apl:ApplicationDataWrapper" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="result" type="apl:ApplicationResultWrapper" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="errors" type="apl:BusinessErrorList" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="ApplicationStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ACCEPTED"/>
+      <xs:enumeration value="IN_PROCESS"/>
+      <xs:enumeration value="COMPLETED"/>
+      <xs:enumeration value="REJECTED"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ApplicationDataWrapper">
+    <xs:sequence>
+      <xs:any minOccurs="0" maxOccurs="1" processContents="strict"/>
+    </xs:sequence>
+    <xs:attribute name="encoding" type="apl:ContentEncoding" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="ApplicationResultWrapper">
+    <xs:sequence>
+      <xs:any minOccurs="0" maxOccurs="1" processContents="strict"/>
+    </xs:sequence>
+    <xs:attribute name="encoding" type="apl:ContentEncoding" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="ApplicationData" abstract="true"/>
+  <xs:complexType name="ApplicationResultData" abstract="true"/>
+  <xs:complexType name="BusinessErrorList">
+    <xs:sequence>
+      <xs:element name="error" type="apl:BusinessError" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BusinessError">
+    <xs:simpleContent>
+      <xs:extension base="bs:Error"/>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:simpleType name="APIKey">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:simpleType name="ContentEncoding">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="plain"/>
+      <xs:enumeration value="gzip"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="BinaryContent">
+    <xs:restriction base="xs:base64Binary"/>
+  </xs:simpleType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>file:/home/valeron/PycharmProjects/mercury/test2.0/base_ws_definitions_v2.0.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://api.vetrf.ru/schema/cdm/base/ws-definitions" elementFormDefault="qualified" version="2.0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bs="http://api.vetrf.ru/schema/cdm/base">
+  <xs:import namespace="http://api.vetrf.ru/schema/cdm/base" schemaLocation="base_v2.0.xsd"/>
+  <xs:element name="entityNotFoundFault" type="bs:FaultInfo"/>
+  <xs:element name="incorrectRequestFault" type="bs:FaultInfo"/>
+  <xs:element name="internalServiceFault" type="bs:FaultInfo"/>
+  <xs:element name="offsetOutOfRangeFault" type="bs:FaultInfo"/>
+  <xs:element name="requestRejectedFault" type="bs:FaultInfo"/>
+  <xs:element name="accessDeniedFault" type="bs:FaultInfo"/>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://api2.vetrf.ru:8002/platform/services/2.0/ApplicationManagementService</con:endpoint></con:endpoints><con:operation id="ca909277-b1a6-4fd0-bc82-971769077e30" isOneWay="false" action="receiveApplicationResult" name="receiveApplicationResult" bindingOperationName="receiveApplicationResult" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="d6db00aa-3614-40a4-ab05-c838a8ccee1b" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://api2.vetrf.ru:8002/platform/services/2.0/ApplicationManagementService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://api.vetrf.ru/schema/cdm/application/ws-definitions">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ws:receiveApplicationResultRequest>
+         <ws:apiKey>OThiNDE1ZGUtMzQ1ZC00NmI2LWI4OTUtMDg3NjE4Y2I3ZGMzOGE0ZmNkNDAtNTI1NC00NDgyLTg0YTgtMDQ1NmUxMTU0MzMw</ws:apiKey>
+         <ws:issuerId>8a4fcd40-5254-4482-84a8-0456e1154330</ws:issuerId>
+         <ws:applicationId>2f729828-68ba-4cb9-8907-da2189e45254</ws:applicationId>
+      </ws:receiveApplicationResultRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="receiveApplicationResult"/><con:wsrmConfig version="1.2"/></con:call><con:call id="826e49af-be64-467c-9eda-abd1ded7eace" name="get"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://api2.vetrf.ru:8002/platform/services/2.0/ApplicationManagementService</con:endpoint><con:request><![CDATA[<soapenv:Envelope  
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"  
+xmlns:ws="http://api.vetrf.ru/schema/cdm/application/ws-definitions">  
+<soapenv:Header/>  
+<soapenv:Body>  
+<ws:receiveApplicationResultRequest>  
+<ws:apiKey>OThiNDE1ZGUtMzQ1ZC00NmI2LWI4OTUtMDg3NjE4Y2I3ZGMzOGE0ZmNkNDAtNTI1NC00NDgyLTg0YTgtMDQ1NmUxMTU0MzMw</ws:apiKey>  
+<ws:applicationId>b80b6f20-542a-4c43-9311-227a6ce9f20b</ws:applicationId>  
+<ws:issuerId>8a4fcd40-5254-4482-84a8-0456e1154330</ws:issuerId>  
+</ws:receiveApplicationResultRequest>  
+</soapenv:Body>  
+</soapenv:Envelope>  >]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="receiveApplicationResult"/><con:wsrmConfig version="1.2"/></con:call><con:call id="81a34f60-d215-42c5-b510-3bbf74a5c82b" name="getUserRule"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://api2.vetrf.ru:8002/platform/services/2.0/ApplicationManagementService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://api.vetrf.ru/schema/cdm/application/ws-definitions">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ws:receiveApplicationResultRequest>
+         <ws:apiKey>OThiNDE1ZGUtMzQ1ZC00NmI2LWI4OTUtMDg3NjE4Y2I3ZGMzOGE0ZmNkNDAtNTI1NC00NDgyLTg0YTgtMDQ1NmUxMTU0MzMw</ws:apiKey>
+         <ws:issuerId>8a4fcd40-5254-4482-84a8-0456e1154330</ws:issuerId>
+         <ws:applicationId>277f75cb-31fb-40b1-8b5b-905803b9bc7f</ws:applicationId>
+      </ws:receiveApplicationResultRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="receiveApplicationResult"/><con:wsrmConfig version="1.2"/></con:call><con:call id="03794fc0-a33a-40d5-8a44-ce206ce02f62" name="getBusinessEntityUserList"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://api2.vetrf.ru:8002/platform/services/2.0/ApplicationManagementService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://api.vetrf.ru/schema/cdm/application/ws-definitions">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ws:receiveApplicationResultRequest>
+         <ws:apiKey>OThiNDE1ZGUtMzQ1ZC00NmI2LWI4OTUtMDg3NjE4Y2I3ZGMzOGE0ZmNkNDAtNTI1NC00NDgyLTg0YTgtMDQ1NmUxMTU0MzMw</ws:apiKey>
+         <ws:issuerId>8a4fcd40-5254-4482-84a8-0456e1154330</ws:issuerId>
+         <ws:applicationId>2489660a-dc18-4ce4-8d8f-4d631282c9e5</ws:applicationId>
+      </ws:receiveApplicationResultRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="receiveApplicationResult"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="33062e12-4939-4296-9caf-d7a9cd2d69c2" isOneWay="false" action="submitApplicationRequest" name="submitApplicationRequest" bindingOperationName="submitApplicationRequest" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="73b8b68f-ebf7-4b7e-bd30-2ca7c1ae8c10" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://api2.vetrf.ru:8002/platform/services/2.0/ApplicationManagementService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://api.vetrf.ru/schema/cdm/application/ws-definitions" xmlns:app="http://api.vetrf.ru/schema/cdm/application">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ws:submitApplicationRequest>
+         <ws:apiKey>OThiNDE1ZGUtMzQ1ZC00NmI2LWI4OTUtMDg3NjE4Y2I3ZGMzOGE0ZmNkNDAtNTI1NC00NDgyLTg0YTgtMDQ1NmUxMTU0MzMw</ws:apiKey>
+         <app:application>
+            <!--Optional:-->
+            <app:applicationId>24099ff5-a66c-4f34-9e21-efca94368b53</app:applicationId>
+            <!--Optional:-->
+            <app:status>REJECTED</app:status>
+            <!--Optional:-->
+            <app:serviceId>mercury-g2b.service</app:serviceId>
+            <!--Optional:-->
+            <app:issuerId>8a4fcd40-5254-4482-84a8-0456e1154330</app:issuerId>
+            <!--Optional:-->
+            <app:issueDate>2020-02-17T16:42:28</app:issueDate>
+            <!--Optional:-->
+            <app:rcvDate>2020-02-23T14:21:37+04:00</app:rcvDate>
+            <!--Optional:-->
+            <app:prdcRsltDate>2020-02-17T17:00:34+04:00</app:prdcRsltDate>
+            <!--Optional:-->
+            <app:data encoding="gzip">
+               <!--You may enter ANY elements at this point-->
+            </app:data>
+            <!--Optional:-->
+            <app:result encoding="plain">
+               <!--You may enter ANY elements at this point-->
+            </app:result>
+            <!--Optional:-->
+            <app:errors>
+               <!--Zero or more repetitions:-->
+               <app:error code="iovis rapidum iaculata" qualifier="speluncis abdidit">bella gero et</app:error>
+            </app:errors>
+         </app:application>
+      </ws:submitApplicationRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="submitApplicationRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call id="24173a94-499b-420a-a4f6-736b23179dbb" name="list"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://api2.vetrf.ru:8002/platform/services/2.0/ApplicationManagementService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"   
+                  xmlns:ws="http://api.vetrf.ru/schema/cdm/application/ws-definitions"   
+                  xmlns:app="http://api.vetrf.ru/schema/cdm/application"   
+                  xmlns:merc="http://api.vetrf.ru/schema/cdm/mercury/applications"   
+                  xmlns:vet="http://api.vetrf.ru/schema/cdm/mercury/vet-document"  
+                  xmlns:base="http://api.vetrf.ru/schema/cdm/base"   
+                  xmlns:com="http://api.vetrf.ru/schema/cdm/argus/common"   
+                  xmlns:ent="http://api.vetrf.ru/schema/cdm/cerberus/enterprise"   
+                  xmlns:ikar="http://api.vetrf.ru/schema/cdm/ikar">  
+   <soapenv:Header/>  
+   <soapenv:Body>  
+      <ws:submitApplicationRequest>  
+       <ws:apiKey>OThiNDE1ZGUtMzQ1ZC00NmI2LWI4OTUtMDg3NjE4Y2I3ZGMzOGE0ZmNkNDAtNTI1NC00NDgyLTg0YTgtMDQ1NmUxMTU0MzMw</ws:apiKey>           
+         <app:application>  
+            <app:serviceId>mercury-g2b.service</app:serviceId>  
+             <app:issuerId>8a4fcd40-5254-4482-84a8-0456e1154330</app:issuerId>  
+             <app:issueDate>2020-02-23T14:03:00</app:issueDate>  
+             <app:data>  
+                <merc:getVetDocumentListRequest>  
+                  <merc:localTransactionId>a10003</merc:localTransactionId>  
+                  <merc:initiator>  
+                      <com:login>katenkov_aa_200113</com:login>  
+                  </merc:initiator>  
+                  <base:listOptions>  
+                    <base:count>10</base:count>  
+                    <base:offset>0</base:offset>  
+              </base:listOptions>  
+                  <vet:vetDocumentType>INCOMING</vet:vetDocumentType>  
+                  <vet:vetDocumentStatus>UTILIZED</vet:vetDocumentStatus>  
+              <ent:enterpriseGuid>guid</ent:enterpriseGuid>  
+               </merc:getVetDocumentListRequest>  
+            </app:data>  
+         </app:application>  
+      </ws:submitApplicationRequest>  
+   </soapenv:Body>  
+</soapenv:Envelope>  ]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="submitApplicationRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call id="48d452c5-1e3f-4c46-8622-e4ce4fe254a0" name="getApplicableUserAuthorityList"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://api2.vetrf.ru:8002/platform/services/2.0/ApplicationManagementService</con:endpoint><con:request><![CDATA[<SOAP-ENV:Envelope xmlns:bs="http://api.vetrf.ru/schema/cdm/base" 
+xmlns:merc="http://api.vetrf.ru/schema/cdm/mercury/g2b/applications/v2" 
+xmlns:apldef="http://api.vetrf.ru/schema/cdm/application/ws-definitions" 
+xmlns:apl="http://api.vetrf.ru/schema/cdm/application" 
+xmlns:vd="http://api.vetrf.ru/schema/cdm/mercury/vet-document/v2" 
+xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header/>
+  <SOAP-ENV:Body>
+    <apldef:submitApplicationRequest>
+      <apldef:apiKey>OThiNDE1ZGUtMzQ1ZC00NmI2LWI4OTUtMDg3NjE4Y2I3ZGMzOGE0ZmNkNDAtNTI1NC00NDgyLTg0YTgtMDQ1NmUxMTU0MzMw</apldef:apiKey>
+      <apl:application>
+        <apl:serviceId>mercury-g2b.service:2.0</apl:serviceId>
+        <apl:issuerId>8a4fcd40-5254-4482-84a8-0456e1154330</apl:issuerId>
+        <apl:issueDate>2020-02-23T14:32:08</apl:issueDate>
+        <apl:data>
+	  <merc:getApplicableUserAuthorityListRequest>
+            <merc:localTransactionId>a10003</merc:localTransactionId>
+            <merc:initiator>
+              <vd:login>andrjucshenko_vg_200203</vd:login>
+            </merc:initiator>
+            <bs:listOptions>
+              <bs:count>100</bs:count>
+              <bs:offset>0</bs:offset>
+            </bs:listOptions>
+          </merc:getApplicableUserAuthorityListRequest>
+        </apl:data>
+      </apl:application>
+    </apldef:submitApplicationRequest>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="submitApplicationRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call id="e3518762-02ed-415b-a5cc-0f8968a32fc2" name="user"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://api2.vetrf.ru:8002/platform/services/2.0/ApplicationManagementService</con:endpoint><con:request><![CDATA[<SOAP-ENV:Envelope xmlns:bs="http://api.vetrf.ru/schema/cdm/base" 
+xmlns:merc="http://api.vetrf.ru/schema/cdm/mercury/g2b/applications/v2" 
+xmlns:apldef="http://api.vetrf.ru/schema/cdm/application/ws-definitions" 
+xmlns:apl="http://api.vetrf.ru/schema/cdm/application" 
+xmlns:vd="http://api.vetrf.ru/schema/cdm/mercury/vet-document/v2" 
+xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header/>
+  <SOAP-ENV:Body>
+    <apldef:submitApplicationRequest>
+      <apldef:apiKey>OThiNDE1ZGUtMzQ1ZC00NmI2LWI4OTUtMDg3NjE4Y2I3ZGMzOGE0ZmNkNDAtNTI1NC00NDgyLTg0YTgtMDQ1NmUxMTU0MzMw</apldef:apiKey>
+      <apl:application>
+        <apl:serviceId>mercury-g2b.service:2.0</apl:serviceId>
+        <apl:issuerId>8a4fcd40-5254-4482-84a8-0456e1154330</apl:issuerId>
+        <apl:issueDate>2020-02-23T14:21:08</apl:issueDate>
+        <apl:data>
+	  <merc:getApplicableUserAuthorityListRequest>
+            <merc:localTransactionId>a10003</merc:localTransactionId>
+            <merc:initiator>
+              <vd:login>login</vd:login>
+            </merc:initiator>
+            <bs:listOptions>
+              <bs:count>100</bs:count>
+              <bs:offset>0</bs:offset>
+            </bs:listOptions>
+          </merc:getApplicableUserAuthorityListRequest>
+        </apl:data>
+      </apl:application>
+    </apldef:submitApplicationRequest>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="submitApplicationRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call id="c1a870ee-9e53-43ab-9afd-d12fc13a4ae9" name="getBusinessEntityUserList"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://api2.vetrf.ru:8002/platform/services/2.0/ApplicationManagementService</con:endpoint><con:request><![CDATA[<?xml version="1.0"?>  
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">  
+    <SOAP-ENV:Body>  
+        <submitApplicationRequest xmlns="http://api.vetrf.ru/schema/cdm/application/ws-definitions">  
+            <apiKey>OThiNDE1ZGUtMzQ1ZC00NmI2LWI4OTUtMDg3NjE4Y2I3ZGMzOGE0ZmNkNDAtNTI1NC00NDgyLTg0YTgtMDQ1NmUxMTU0MzMw</apiKey>  
+            <application xmlns="http://api.vetrf.ru/schema/cdm/application">  
+                <serviceId>mercury-g2b.service:2.0</serviceId>  
+                <issuerId>8a4fcd40-5254-4482-84a8-0456e1154330</issuerId>  
+                <issueDate>2020-02-23T14:03:34.155+03:00</issueDate>  
+                <data>  
+                    <getBusinessEntityUserListRequest xmlns="http://api.vetrf.ru/schema/cdm/mercury/g2b/applications/v2">  
+                        <localTransactionId>t20171116140334155</localTransactionId>  
+                        <initiator>  
+                            <login xmlns="http://api.vetrf.ru/schema/cdm/mercury/vet-document/v2">katenkov_aa_200113</login>  
+                        </initiator>  
+                        <listOptions xmlns="http://api.vetrf.ru/schema/cdm/base">  
+                            <count>500</count>  
+                            <offset>0</offset>  
+                        </listOptions>  
+                    </getBusinessEntityUserListRequest>  
+                </data>  
+            </application>  
+        </submitApplicationRequest>  
+    </SOAP-ENV:Body>  
+</SOAP-ENV:Envelope>  ]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="submitApplicationRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:endpointStrategy xsi:type="con:DefaultEndpointStrategy" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:endpoint mode="COMPLEMENT" username="ipkatenkov-200113" password="3Dv5dHwP6W">https://api2.vetrf.ru:8002/platform/services/2.0/ApplicationManagementService</con:endpoint></con:endpointStrategy><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

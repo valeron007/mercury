@@ -1,0 +1,8 @@
+#header .local .queryable-select{position:relative;}
+#header-administration-suggestions{min-width:298px;max-height:600px;display:none;}
+#header-bottom .queryable-select .drop-menu{top:2px;}
+.mozilla #header-bottom .queryable-select .drop-menu{top:3px;}
+#administration-suggestions .aui-list-item .aui-item-suffix{color:#999999;}
+#administration-suggestions .aui-list-item.active .aui-item-suffix{color:#ffffff;}
+#header-administration-suggestions .aui-list-item .aui-item-suffix,#header-administration-suggestions .aui-list-item.active .aui-item-suffix{color:#999999;}
+

@@ -1,0 +1,14 @@
+div.ops-cont{overflow:visible;}
+.dropdown-text{float:none!important;}
+#content>header:after{clear:both;content:"";display:block;height:0;visibility:hidden;}
+.command-bar .disabled .drop-menu,.command-bar .disabled .drop-menu:hover{background-position:0 -199px;}
+#issue-content{position:relative;}#issue-content>header{padding:0;}#issue-content>header h1,#issue-content>header h2{margin:0;}
+#issue-content>header>h1>a{text-decoration:none;}
+#issue-content>header #heading-avatar{float:left;height:48px;margin:0;overflow:hidden;width:48px;}#issue-content>header #heading-avatar>img{display:block;}
+#issue-content>header #heading-avatar+h1{padding-top:9px;}
+#issue-content>header #heading-avatar+ul.breadcrumbs,#issue-content>header #heading-avatar+ul.breadcrumbs+h1,#issue-content>header #heading-avatar+h1{margin-left:64px;}
+#issue-content .issue-blanket{position:absolute;top:0;left:0;background:white;opacity:0.5;z-index:9990;}
+#issue-content .aui-loading{display:block;z-index:9991;}
+.focus-shifter-mesg{display:inline;color:#666;line-height:1.2;}
+.inline-edit-fields{outline:none;}
+
